@@ -1,0 +1,215 @@
+[gd_scene load_steps=10 format=3 uid="uid://crbw5nsxnhid7"]
+
+[ext_resource type="Texture2D" uid="uid://bb1dvihjntisv" path="res://Art/RedChecker.png" id="1_eu63x"]
+[ext_resource type="Script" path="res://Scripts/red_checker.gd" id="1_n1s7u"]
+[ext_resource type="Texture2D" uid="uid://vkdjdbew8q1h" path="res://Art/HighlightChecker.png" id="2_xhdou"]
+[ext_resource type="Texture2D" uid="uid://cfwnlo037x4li" path="res://Art/SelectedChecker.png" id="3_4faym"]
+[ext_resource type="Texture2D" uid="uid://ch5nyhaavyou3" path="res://Art/King.png" id="5_15t22"]
+
+[sub_resource type="Animation" id="Animation_pru04"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SelectedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gbmnn"]
+resource_name = "Selected"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SelectedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tj7x0"]
+_data = {
+"RESET": SubResource("Animation_pru04"),
+"Selected": SubResource("Animation_gbmnn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8doc"]
+size = Vector2(359, 316)
+
+[node name="RedChecker" type="Node2D"]
+script = ExtResource("1_n1s7u")
+
+[node name="CheckerSprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_eu63x")
+
+[node name="HighlightedSprite2D" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("2_xhdou")
+
+[node name="SelectedSprite2D" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("3_4faym")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tj7x0")
+}
+
+[node name="TextureButtonATR" type="TextureButton" parent="."]
+visible = false
+offset_left = 24.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = -24.0
+metadata/_edit_group_ = true
+
+[node name="HighlightedSprite2DTR" type="Sprite2D" parent="TextureButtonATR"]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("2_xhdou")
+centered = false
+
+[node name="TextureButtonABL" type="TextureButton" parent="."]
+visible = false
+offset_left = -40.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 40.0
+metadata/_edit_group_ = true
+
+[node name="HighlightedSprite2DBL" type="Sprite2D" parent="TextureButtonABL"]
+z_index = 1
+texture_filter = 1
+position = Vector2(8, 8)
+texture = ExtResource("2_xhdou")
+
+[node name="TextureButtonATL" type="TextureButton" parent="."]
+visible = false
+offset_left = -40.0
+offset_top = -40.0
+offset_right = -24.0
+offset_bottom = -24.0
+metadata/_edit_group_ = true
+
+[node name="HighlightedSprite2DTL" type="Sprite2D" parent="TextureButtonATL"]
+texture_filter = 1
+texture = ExtResource("2_xhdou")
+centered = false
+
+[node name="TextureButtonABR" type="TextureButton" parent="."]
+visible = false
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_group_ = true
+
+[node name="HighlightedSprite2DBR" type="Sprite2D" parent="TextureButtonABR"]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_xhdou")
+centered = false
+
+[node name="TextureButtonTR" type="TextureButton" parent="."]
+visible = false
+offset_left = 8.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = -8.0
+metadata/_edit_group_ = true
+
+[node name="HighlightedSprite2DTR" type="Sprite2D" parent="TextureButtonTR"]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("2_xhdou")
+centered = false
+
+[node name="TextureButtonBL" type="TextureButton" parent="."]
+visible = false
+offset_left = -24.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 24.0
+metadata/_edit_group_ = true
+
+[node name="HighlightedSprite2DBL" type="Sprite2D" parent="TextureButtonBL"]
+z_index = 1
+texture_filter = 1
+position = Vector2(8, 8)
+texture = ExtResource("2_xhdou")
+
+[node name="TextureButtonTL" type="TextureButton" parent="."]
+visible = false
+offset_left = -24.0
+offset_top = -24.0
+offset_right = -8.0
+offset_bottom = -8.0
+metadata/_edit_group_ = true
+
+[node name="HighlightedSprite2DTL" type="Sprite2D" parent="TextureButtonTL"]
+texture_filter = 1
+texture = ExtResource("2_xhdou")
+centered = false
+
+[node name="TextureButtonBR" type="TextureButton" parent="."]
+visible = false
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 24.0
+offset_bottom = 24.0
+metadata/_edit_group_ = true
+
+[node name="HighlightedSprite2DBR" type="Sprite2D" parent="TextureButtonBR"]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_xhdou")
+centered = false
+
+[node name="DeSelect" type="Area2D" parent="."]
+visible = false
+z_index = -3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeSelect"]
+position = Vector2(1.5, -6)
+shape = SubResource("RectangleShape2D_k8doc")
+
+[node name="KingSprite" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = ExtResource("5_15t22")
+
+[node name="ButtonChecker" type="TextureButton" parent="."]
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+
+[connection signal="pressed" from="TextureButtonATR" to="." method="_on_texture_button_atr_pressed"]
+[connection signal="pressed" from="TextureButtonABL" to="." method="_on_texture_button_abl_pressed"]
+[connection signal="pressed" from="TextureButtonATL" to="." method="_on_texture_button_atl_pressed"]
+[connection signal="pressed" from="TextureButtonABR" to="." method="_on_texture_button_abr_pressed"]
+[connection signal="pressed" from="TextureButtonTR" to="." method="_on_texture_button_tr_pressed"]
+[connection signal="pressed" from="TextureButtonBL" to="." method="_on_texture_button_bl_pressed"]
+[connection signal="pressed" from="TextureButtonTL" to="." method="_on_texture_button_tl_pressed"]
+[connection signal="pressed" from="TextureButtonBR" to="." method="_on_texture_button_br_pressed"]
+[connection signal="input_event" from="DeSelect" to="." method="_on_de_select_input_event"]
+[connection signal="mouse_entered" from="ButtonChecker" to="." method="_on_button_checker_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonChecker" to="." method="_on_button_checker_mouse_exited"]
+[connection signal="pressed" from="ButtonChecker" to="." method="_on_button_checker_pressed"]

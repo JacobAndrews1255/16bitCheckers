@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://y2nnbubjkq72"]
+
+[ext_resource type="Texture2D" uid="uid://cwhd0fxgm8oj5" path="res://Art/CheckerBoard.png" id="1_biss6"]
+[ext_resource type="Script" path="res://Scripts/CheckerBoard.gd" id="1_jlqik"]
+[ext_resource type="PackedScene" uid="uid://but32gh5bih4b" path="res://Scenes/black_checker.tscn" id="2_8dbxj"]
+[ext_resource type="PackedScene" uid="uid://crbw5nsxnhid7" path="res://Scenes/red_checker.tscn" id="3_en6g4"]
+[ext_resource type="Script" path="res://Scenes/global.gd" id="5_ufpqj"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_jlqik")
+metadata/_edit_vertical_guides_ = []
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("1_biss6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="BlackChecker1" parent="." instance=ExtResource("2_8dbxj")]
+position = Vector2(-56, 56)
+
+[node name="BlackChecker2" parent="." instance=ExtResource("2_8dbxj")]
+position = Vector2(-24, 56)
+
+[node name="BlackChecker3" parent="." instance=ExtResource("2_8dbxj")]
+position = Vector2(8, 56)
+
+[node name="BlackChecker4" parent="." instance=ExtResource("2_8dbxj")]
+position = Vector2(40, 56)
+
+[node name="BlackChecker5" parent="." instance=ExtResource("2_8dbxj")]
+position = Vector2(-40, 40)
+
+[node name="BlackChecker6" parent="." instance=ExtResource("2_8dbxj")]
+position = Vector2(-8, 40)
+
+[node name="BlackChecker7" parent="." instance=ExtResource("2_8dbxj")]
+position = Vector2(24, 40)
+
+[node name="BlackChecker8" parent="." instance=ExtResource("2_8dbxj")]
+position = Vector2(56, 40)
+
+[node name="BlackChecker9" parent="." instance=ExtResource("2_8dbxj")]
+position = Vector2(-56, 24)
+
+[node name="BlackChecker10" parent="." instance=ExtResource("2_8dbxj")]
+position = Vector2(-24, 24)
+
+[node name="BlackChecker11" parent="." instance=ExtResource("2_8dbxj")]
+position = Vector2(8, 24)
+
+[node name="BlackChecker12" parent="." instance=ExtResource("2_8dbxj")]
+position = Vector2(40, 24)
+
+[node name="RedChecker1" parent="." instance=ExtResource("3_en6g4")]
+position = Vector2(-40, -56)
+
+[node name="RedChecker2" parent="." instance=ExtResource("3_en6g4")]
+visible = false
+position = Vector2(-8, -56)
+
+[node name="RedChecker3" parent="." instance=ExtResource("3_en6g4")]
+position = Vector2(24, -56)
+
+[node name="RedChecker4" parent="." instance=ExtResource("3_en6g4")]
+position = Vector2(56, -56)
+
+[node name="RedChecker5" parent="." instance=ExtResource("3_en6g4")]
+position = Vector2(-56, -40)
+
+[node name="RedChecker6" parent="." instance=ExtResource("3_en6g4")]
+position = Vector2(-24, -40)
+
+[node name="RedChecker7" parent="." instance=ExtResource("3_en6g4")]
+position = Vector2(8, -40)
+
+[node name="RedChecker8" parent="." instance=ExtResource("3_en6g4")]
+visible = false
+position = Vector2(40, -40)
+
+[node name="RedChecker9" parent="." instance=ExtResource("3_en6g4")]
+position = Vector2(-40, -24)
+
+[node name="RedChecker10" parent="." instance=ExtResource("3_en6g4")]
+position = Vector2(-8, -24)
+
+[node name="RedChecker11" parent="." instance=ExtResource("3_en6g4")]
+visible = false
+position = Vector2(24, -24)
+
+[node name="RedChecker12" parent="." instance=ExtResource("3_en6g4")]
+position = Vector2(56, -24)
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("5_ufpqj")
